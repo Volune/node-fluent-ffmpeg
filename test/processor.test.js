@@ -133,21 +133,6 @@ describe('Processor', function() {
       });
   });
 
-  it('should save the output file properly to disk using a stream', function(done) {
-    var testFile = path.join(__dirname, 'assets', 'te[s]t video \' " .flv');
-
-    new Ffmpeg({ source: this.testfile, nolog: false })
-      .usingPreset('flashvideo')
-      .saveToFile(testFile, function(code, stderr) {
-        fs.exists(testFile, function(exist) {
-          if (exist) {
-            fs.unlinkSync(testFile);
-          }
-          done();
-        });
-      });
-  });
-
   it('should kill the process on timeout', function(done) {
     var testFile = path.join(__dirname, 'assets', 'testProcessKill.flv');
 
